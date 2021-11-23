@@ -1,0 +1,38 @@
+﻿@model IList<Pet>
+
+
+<a href="/Pet/New" class="btn btn-danger"> Add New  </a>
+<h2 style="text-align:center; color:chartreuse"> All Get From Database </h2>
+
+<table class="table table-bordered table-hover" >
+    <thead>
+        <tr>
+
+            <th>  ID  </th>
+
+            <th>  Name  </th>
+
+            <th>  Age  </th>
+
+            <th> Color </th>
+            <th colspan="2"> Actions </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td> @item.Id </td>
+            <td>@item.Name</td>
+            <td> @item.Age </td>
+            <td>@item.Color</td>
+            <td> <a class="btn btn-primary" asp-action="edit" asp-route-id="@item.Id"> Edit </a> </td>
+            <td> <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"> Delete </a> </td>
+
+        </tr>
+                }
+           
+        </tbody>
+</table>
